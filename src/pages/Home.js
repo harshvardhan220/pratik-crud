@@ -51,6 +51,17 @@ export default function Home() {
 
   const { id } = useParams();
 
+  const [data, setData] = useState("");
+
+  // useEffect(() => {
+  //   const fetchFunc = async () => {
+  //     let response = await fetch(`${process.env.REACT_APP_DATA_URL}/data/v1/countries`);
+  //     let data = await response.json();
+  //     setData(data)
+  //   }
+  //   fetchFunc()
+  // },[])
+
   // useEffect(() => {
   //   loadUsers();
   // }, []);
@@ -85,7 +96,7 @@ export default function Home() {
           </thead>
           <tbody>
             {users.map((user, index) => (
-              <tr>
+              <tr key={index}>
                 <th scope="row" key={index}>
                   {index + 1}
                 </th>
